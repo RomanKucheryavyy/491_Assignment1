@@ -1,3 +1,29 @@
+/**
+ * Roman Kucheryavyy
+ * Professor: Chris Marriot
+ * Course: TCSS 491 (Computational Worlds)
+ * Assignment: 1
+ * Date: 1/31/2020
+ * 
+ * Assignment 1 (sprite animation), game engine, assetmanager, skeleton for the animation class was provided by Chris Marriot, 
+ * the implementation of sprites an dvarious animations and other necesities like keyboard listeners were created by Roman Kucheryavyy.
+ * 
+ * In this implementation you will find animated snowball rolling across the map, a robot moving in all 4 directions randomly with edge
+ * detection, a knight running and jumping, other fun animations like a cannon being fired.
+ * 
+ * @param {*} spriteSheet 
+ * @param {*} startX 
+ * @param {*} startY 
+ * @param {*} frameWidth 
+ * @param {*} frameHeight 
+ * @param {*} frameDuration 
+ * @param {*} frames 
+ * @param {*} loop 
+ * @param {*} reverse 
+ */
+
+
+
 function Animation(spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse) {
     this.spriteSheet = spriteSheet;
     this.startX = startX;
@@ -66,50 +92,6 @@ Background.prototype.draw = function (ctx) {
     Entity.prototype.draw.call(this);
 }
 
-// function Knight(game) {
-//     this.animation = new Animation(ASSET_MANAGER.getAsset("./img/RobotUnicorn.png"), 0, 0, 206, 110, 0.02, 30, true, true);
-//     this.jumpAnimation = new Animation(ASSET_MANAGER.getAsset("./img/RobotUnicorn.png"), 618, 334, 174, 138, 0.02, 40, false, true);
-//     this.jumping = false;
-//     this.radius = 100;
-//     this.ground = 400;
-//     Entity.call(this, game, 0, 400);
-// }
-
-// Knight.prototype = new Entity();
-// Knight.prototype.constructor = Knight;
-
-// Knight.prototype.update = function () {
-//     if (this.game.space) this.jumping = true;
-//     if (this.jumping) {
-//         if (this.jumpAnimation.isDone()) {
-//             this.jumpAnimation.elapsedTime = 0;
-//             this.jumping = false;
-//         }
-//         var jumpDistance = this.jumpAnimation.elapsedTime / this.jumpAnimation.totalTime;
-//         var totalHeight = 200;
-
-//         if (jumpDistance > 0.5)
-//             jumpDistance = 1 - jumpDistance;
-
-//         //var height = jumpDistance * 2 * totalHeight;
-//         var height = totalHeight*(-4 * (jumpDistance * jumpDistance - jumpDistance));
-//         this.y = this.ground - height;
-//     }
-//     Entity.prototype.update.call(this);
-// }
-
-// Knight.prototype.draw = function (ctx) {
-//     if (this.jumping) {
-//         this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x + 17, this.y - 34);
-//     }
-//     else {
-//         this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
-//     }
-//     Entity.prototype.draw.call(this);
-// }
-
-//this.animation = new Animation(ASSET_MANAGER.getAsset("./img/run.png"), 0, 254, 71, 94, .04, 10, true, true);
-
 function Knight(game) {
     //this.soldierAnimation = new Animation(ASSET_MANAGER.getAsset("./img/rain_sprite_sheet_by_soldiern_d3hhhdy.png"), 6, 254, 70, 94, .1, 10, true, true);
     this.animation = new Animation(AM.getAsset("./img/run.png"), 0, 0, 343, 337, .04, 17, true, true);
@@ -143,20 +125,20 @@ Knight.prototype.update = function () {
 }
 
 Knight.prototype.draw = function (ctx) {
-    //this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y, .5);
+ 
     if (this.jumping) {
         this.jumpAnimation.drawFrame(this.game.clockTick, ctx, this.x + 17, this.y - 34);
     }
     else {
         this.animation.drawFrame(this.game.clockTick, ctx, this.x, this.y);
     }
-    //this.soldierAnimation.drawFrame(this.game.clockTick, ctx, this.x - 100, this.y - 100, 2);
+
     Entity.prototype.draw.call(this);
 }
 
 
 function Enemy(game) {
-    //this.animation = new Animation(AM.getAsset("./img/run.png"), 0, 0, 343, 644, .04, 17, true, true);
+
     this.cannonAnimation = new Animation(AM.getAsset("./img/CannonFire_00000.png"), 0, 0, 101, 152, .05, 11, true, true);
     this.snowballAnimation = new Animation(AM.getAsset("./img/snowball_01.png"),0 , 0, 512, 386, .05, 6, true, true);
 
