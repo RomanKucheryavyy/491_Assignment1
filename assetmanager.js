@@ -1,3 +1,11 @@
+/**
+ * Roman Kucheryavyy
+ * Professor: Chris Marriot
+ * Course: TCSS 491 (Computational Worlds)
+ * Assignment: 1
+ * Date: 1/31/2020
+ */
+
 function AssetManager() {
     this.successCount = 0;
     this.errorCount = 0;

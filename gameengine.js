@@ -1,4 +1,12 @@
 // This game shell was happily copied from Googler Seth Ladd's "Bad Aliens" game and his Google IO talk in 2011
+/**
+ * Roman Kucheryavyy
+ * Professor: Chris Marriot
+ * Course: TCSS 491 (Computational Worlds)
+ * Assignment: 1
+ * Date: 1/31/2020
+ * 
+ */
 
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
